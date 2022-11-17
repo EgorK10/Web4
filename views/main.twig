@@ -1,0 +1,25 @@
+{% extends "__layout.twig" %}
+{% from "button.twig" import btn %}
+
+{% block content %}
+<div class="container pt-2">
+    <h2>СНГ команды CS:GO</h2>
+
+    <ul class="list-group pt-2">
+    {% for item in list %}
+    <li class="list-group-item">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                {{ btn(item.title, item.url) }}
+            </li>
+            <li class="nav-item">
+                {{ btn("Image", "#{item.url}/image", "light") }}
+            </li>
+            <li class="nav-item">
+                {{ btn("Description", "#{item.url}/description", "light") }}
+            </li>
+        </ul>
+    </li>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "__layout.twig" %}
+{% from "button.twig" import btn %}
+
+{% block content %}
+<img src="{{imagelogo}}" alt="А где картинка?" style="width: 200px" class="ms-5"/>
+
+<ul class="nav nav-pills p-4">
+  <li class="nav-item">
+    {{ btn("Image", "#{link}/image", not is_image ? "light") }}
+  </li>
+  <li class="nav-item">
+    {{ btn("Description", "#{link}/description", not is_description ? "light") }}
+  </li>
+</ul>
+
+<div class="p-4 border rounded-2 {{ not (is_image or is_description) ? 'd-none' }}">
+  {% block content_iformation %}
+  {% endblock %}
+</div>
+
+{% endblock %}
